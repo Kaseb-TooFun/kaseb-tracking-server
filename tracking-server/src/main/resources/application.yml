@@ -18,6 +18,7 @@ management:
       enabled: true
   endpoints:
     web:
+      base-path: "/monitoring"
       exposure:
         include: "*"
   metrics:
@@ -35,6 +36,9 @@ tracking-service:
     name: "tracking-queue"
   routing:
     key: "tracking"
+monitoring:
+  user: kaseb
+  password: HW9Z954sefKxpWDDtcxEaZF2MEtQAccBW2Sb4B4ng22JThDUs9rSDccyRXP3
 
 services:
   infrastructure:
