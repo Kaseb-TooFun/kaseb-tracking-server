@@ -9,6 +9,7 @@ import lombok.Data;
  */
 @Data
 public class TrackingRequestDto {
+    private String websiteId;
     private EventType eventType;
     private String entityId;
     private String targetEntityId;

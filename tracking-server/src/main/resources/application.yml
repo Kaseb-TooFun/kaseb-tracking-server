@@ -35,3 +35,10 @@ tracking-service:
     name: "tracking-queue"
   routing:
     key: "tracking"
+
+services:
+  infrastructure:
+    harness:
+      base-url: "https://harness.kaseb.xyz"
+      username: "kaseb"
+      password: "sWn9nS0hXS1pcnGvkryh"

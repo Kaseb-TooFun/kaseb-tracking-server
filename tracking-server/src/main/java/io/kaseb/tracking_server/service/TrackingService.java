@@ -36,6 +36,7 @@ public class TrackingService {
                 .setEventType(requestDto.getEventType())
                 .setProperties(requestDto.getProperties())
                 .setTargetEntityId(requestDto.getTargetEntityId())
+                .setWebsiteId(requestDto.getWebsiteId())
                 .setEventTime(simpleDateFormat.format(new Date()));
     }
 
