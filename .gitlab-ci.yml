@@ -1,4 +1,3 @@
-
 image: docker:latest
 services:
   - docker:dind
@@ -22,12 +21,12 @@ maven-test:
   image: maven:3-jdk-11
   stage: test
   script:
-    - mvn verify --file root/pom.xml
+    - mvn verify --file tracking-server/pom.xml
   artifacts:
     reports:
       junit:
-        - root/server/target/surefire-reports/TEST-*.xml
-        - root/server/target/failsafe-reports/TEST-*.xml
+        - tracking-server/server/target/surefire-reports/TEST-*.xml
+        - tracking-server/server/target/failsafe-reports/TEST-*.xml
   rules:
     - if: $CI_COMMIT_TAG
     - if: '$CI_PIPELINE_SOURCE == "web"'
@@ -39,10 +38,10 @@ maven-build:
   image: maven:3-jdk-11
   stage: build
   script: 
-   - mvn package -B -Dmaven.test.skip=true --file root/pom.xml
+   - mvn package -B -Dmaven.test.skip=true --file tracking-server/pom.xml
   artifacts:
     paths:
-      - root/server/target/*.jar
+      - tracking-server/server/target/*.jar
   rules:
     - if: $CI_COMMIT_TAG
     - if: '$CI_PIPELINE_SOURCE == "web"'
