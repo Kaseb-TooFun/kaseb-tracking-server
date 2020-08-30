@@ -39,6 +39,7 @@ maven-build:
   stage: build
   script: 
    - mvn package -B -Dmaven.test.skip=true --file tracking-server/pom.xml
+   - ls -R
   artifacts:
     paths:
       - tracking-server/*.jar
