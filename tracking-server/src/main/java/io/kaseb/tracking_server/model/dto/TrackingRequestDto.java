@@ -1,6 +1,7 @@
 package io.kaseb.tracking_server.model.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import io.kaseb.tracking_server.domain.enums.EventType;
 import lombok.Data;
 
 /**
@@ -8,5 +9,8 @@ import lombok.Data;
  */
 @Data
 public class TrackingRequestDto {
-    private JsonNode trackData;
+    private EventType eventType;
+    private String entityId;
+    private String targetEntityId;
+    private JsonNode properties;
 }
