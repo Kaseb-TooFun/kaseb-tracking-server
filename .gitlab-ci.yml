@@ -17,22 +17,22 @@ stages:
   - package
   - deploy
 
-maven-test:
-  image: maven:3-jdk-11
-  stage: test
-  script:
-    - mvn verify --file tracking-server/pom.xml
-  artifacts:
-    reports:
-      junit:
-        - tracking-server/server/target/surefire-reports/TEST-*.xml
-        - tracking-server/server/target/failsafe-reports/TEST-*.xml
-  rules:
-    - if: $CI_COMMIT_TAG
-    - if: '$CI_PIPELINE_SOURCE == "web"'
-    - if: '$CI_PIPELINE_SOURCE == "chat"'
-  tags:
-    - arvan
+# maven-test:
+#   image: maven:3-jdk-11
+#   stage: test
+#   script:
+#     - mvn verify --file tracking-server/pom.xml
+#   artifacts:
+#     reports:
+#       junit:
+#         - tracking-server/surefire-reports/TEST-*.xml
+#         - tracking-server/failsafe-reports/TEST-*.xml
+#   rules:
+#     - if: $CI_COMMIT_TAG
+#     - if: '$CI_PIPELINE_SOURCE == "web"'
+#     - if: '$CI_PIPELINE_SOURCE == "chat"'
+#   tags:
+#     - arvan
 
 maven-build:
   image: maven:3-jdk-11
@@ -41,7 +41,7 @@ maven-build:
    - mvn package -B -Dmaven.test.skip=true --file tracking-server/pom.xml
   artifacts:
     paths:
-      - tracking-server/server/target/*.jar
+      - tracking-server/*.jar
   rules:
     - if: $CI_COMMIT_TAG
     - if: '$CI_PIPELINE_SOURCE == "web"'
