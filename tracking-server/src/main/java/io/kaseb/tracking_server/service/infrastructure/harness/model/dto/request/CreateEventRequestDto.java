@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 public class CreateEventRequestDto {
-    private EventType eventType;
+    private EventType event;
     private String entityType;
     private String entityId;
     private String targetEntityType;
@@ -19,7 +19,7 @@ public class CreateEventRequestDto {
     private String eventTime;
 
     public CreateEventRequestDto(TrackingEntity trackingEntity) {
-        this.eventType = trackingEntity.getEventType();
+        this.event = trackingEntity.getEventType();
         this.entityType = "user";
         this.entityId = trackingEntity.getEntityId();
         this.targetEntityType = "item";
