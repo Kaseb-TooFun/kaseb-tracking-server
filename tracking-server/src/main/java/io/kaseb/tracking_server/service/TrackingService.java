@@ -24,8 +24,12 @@ public class TrackingService {
 
     public Void track(TrackingRequestDto requestDto) {
         TrackingEntity trackingEntity = createTrackingEntity(requestDto);
-        logger.info("adding tracking request to queue");
-        rabbitTemplate.convertAndSend(exchangeName, "tracking.user", trackingEntity);
+        logger.info("trying to add tracking request to queue");
+        try {
+            rabbitTemplate.convertAndSend(exchangeName, "tracking.user", trackingEntity);
+        } catch (Exception ex) {
+            logger.error("error in adding tracking request to queue ", ex);
+        }
         return null;
     }
 
