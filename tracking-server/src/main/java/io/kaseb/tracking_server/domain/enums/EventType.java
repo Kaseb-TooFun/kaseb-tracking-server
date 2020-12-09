@@ -13,4 +13,5 @@ public enum EventType {
     ANIMATION_CLICK_ITEM,
     NEW_USER_REGISTER,
     SESSION_DURATION,
+    PAGE_VIEW
 }
